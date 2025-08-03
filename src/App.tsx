@@ -1,13 +1,7 @@
 import React, { useEffect } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import AIDemo from './components/AIDemo';
-import VoiceDemo from './components/VoiceDemo';
-import Security from './components/Security';
-import Testimonials from './components/Testimonials';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import DoctorsPage from './pages/DoctorsPage';
 
 function App() {
   useEffect(() => {
@@ -39,17 +33,12 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <Hero />
-      <Features />
-      <AIDemo />
-      <VoiceDemo />
-      <Security />
-      <Testimonials />
-      <CTA />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/doctors" element={<DoctorsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
